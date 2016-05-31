@@ -2,7 +2,7 @@ require_relative '../message_handler.rb'
 require_relative '../distance_calculator.rb'
 
 describe ".MessageHandler" do
-	let(:message) { "!distance 32084 04101" }
+	let(:message) { "!distance 32084 04101 km" }
 	let(:any_old_message) { "lorem ipsum" }
 	let(:locations) { ["32084", "04101"] }
 	let(:distance) { 1130 }
@@ -19,6 +19,10 @@ describe ".MessageHandler" do
 
 		it "uses DistanceCalculator object to calculate distance between objects" do
 			expect(handler.distance_calculator).to be_within(5).of(distance)
+		end
+
+		it "finds kilometers parameter in message" do
+			expect(handler.has_km?).to eq(true)
 		end
 	end
 
