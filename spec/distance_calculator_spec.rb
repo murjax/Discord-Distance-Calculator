@@ -49,17 +49,17 @@ describe ".DistanceCalculator" do
 
 		it "works with cities" do
 			expect(city_calculator.get_miles).to be_within(5).of(1130)
-			expect(city_calculator.get_kilos).to be_within(5).of(1818)
+			expect(city_calculator.get_kilometers).to be_within(5).of(1818)
 		end
 
 		it "works with coordinates" do
 			expect(coord_calculator.get_miles).to be_within(5).of(1130)
-			expect(coord_calculator.get_kilos).to be_within(5).of(1818)
+			expect(coord_calculator.get_kilometers).to be_within(5).of(1818)
 		end
 
 		it "works with mixed values" do
 			expect(mix_calculator.get_miles).to be_within(5).of(1130)
-			expect(mix_calculator.get_kilos).to be_within(5).of(1818)
+			expect(mix_calculator.get_kilometers).to be_within(5).of(1818)
 		end
 
 	end
@@ -67,7 +67,7 @@ describe ".DistanceCalculator" do
 	context "when invalid content is received" do
 		it "returns 0 if invalid locations are given" do
 			expect(invalid_calculator.get_miles).to eq(0)
-			expect(invalid_calculator.get_kilos).to eq(0)
+			expect(invalid_calculator.get_kilometers).to eq(0)
 		end
 	end
 end

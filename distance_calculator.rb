@@ -1,5 +1,5 @@
 require 'geocoder'
-require_relative 'geocoder_configure.rb'
+require_relative 'geocoder_configure.rb' # use your own configuration for geocoder
 
 class String
 	def numeric?
@@ -18,6 +18,7 @@ class DistanceCalculator
 	def get_miles
 		coordinates = get_coordinates
 		distance = Geocoder::Calculations.distance_between(coordinates[0], coordinates[1])
+
 		if distance.nan?
 			return distance = 0
 		else
@@ -26,7 +27,7 @@ class DistanceCalculator
 		
 	end
 
-	def get_kilos
+	def get_kilometers
 		coordinates = get_coordinates
 		distance = Geocoder::Calculations.distance_between(coordinates[0], coordinates[1])
 		if distance.nan?
