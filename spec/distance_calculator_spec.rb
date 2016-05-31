@@ -1,5 +1,5 @@
-require_relative 'message_handler.rb'
-require_relative 'distance_calculator.rb'
+require_relative '../message_handler.rb'
+require_relative '../distance_calculator.rb'
 
 describe ".MessageHandler" do
 	let(:message) { "!distance 32084 04101" }
@@ -44,7 +44,7 @@ describe ".DistanceCalculator" do
 
 		it "works with zip codes" do 
 			expect(zip_calculator.get_miles).to be_within(5).of(1130)
-			expect(zip_calculator.get_kilos).to be_within(5).of(1818)
+			expect(zip_calculator.get_kilometers).to be_within(5).of(1818)
 		end
 
 		it "works with cities" do
