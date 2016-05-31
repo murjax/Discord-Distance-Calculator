@@ -14,6 +14,14 @@ class MessageHandler
 		end
 	end
 
+	def has_km?
+		if message.end_with?(' km')
+			return true
+		else
+			return false
+		end
+	end
+
 	def get_locations
 		locations = []
 		parts = message.split(" ")
@@ -22,14 +30,24 @@ class MessageHandler
 		locations
 	end
 
-	def distance_calculator
+	def distance_calculator(unit_type = "mi")
 		calculator = DistanceCalculator.new(get_locations)
-		calculator.get_miles
+		if unit_type == "mi"
+			calculator.get_miles
+		else
+			calculator.get_kilometers
+		end
+		
 	end
 
 	def get_response
 		if has_command?
-			"The distance between these two points is #{distance_calculator} miles."
+			if has_km?
+				"The distance between these two points is #{distance_calculator("km")} kilometers."
+			else
+				"The distance between these two points is #{distance_calculator} miles."
+			end
+			
 		end
 	end
 end
