@@ -1,12 +1,6 @@
 require 'geocoder'
 require_relative 'geocoder_configure.rb' # use your own configuration for geocoder
 
-class String
-	def numeric?
-		Float(self) != nil rescue false
-	end
-end
-
 class DistanceCalculator
 
 	attr_reader :locations
@@ -19,31 +13,22 @@ class DistanceCalculator
 		coordinates = get_coordinates
 		distance = Geocoder::Calculations.distance_between(coordinates[0], coordinates[1])
 
-		if distance.nan?
-			return distance = 0
-		else
-			return distance.round(0)
-		end
+		return distance.nan? ? distance = 0 : distance.round(0)
+		
 		
 	end
 
 	def get_kilometers
 		coordinates = get_coordinates
 		distance = Geocoder::Calculations.distance_between(coordinates[0], coordinates[1])
-		if distance.nan?
-			return distance = 0
-		else
-			distance = distance * 1.609347218694
-			return distance.round(0)
-		end
+
+		return distance.nan? ? distance = 0 : (distance * 1.609347218694).round(0) 
+		
 	end
 
 	def get_coordinates
 		coordinates = []
-
-		coordinates.push(Geocoder.coordinates(locations[0]))
-		coordinates.push(Geocoder.coordinates(locations[1]))
-		coordinates
+		coordinates.push(Geocoder.coordinates(locations[0])).push(Geocoder.coordinates(locations[1]))
 	end
 
 
