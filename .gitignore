@@ -1,0 +1,3 @@
+# ignore files with personal credentials
+bot_credentials.rb
+geocoder_configure.rb
