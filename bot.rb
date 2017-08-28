@@ -4,7 +4,7 @@ require_relative 'bot_credentials.rb' # use your own object for token and applic
 
 credentials = BotCredentials.new
 
-bot = Discordrb::Bot.new token: credentials.token , application_id: credentials.application_id
+bot = Discordrb::Bot.new token: credentials.token , client_id: credentials.application_id
 puts "This bot's invite URL is #{bot.invite_url}."
 
 bot.message do |event|
