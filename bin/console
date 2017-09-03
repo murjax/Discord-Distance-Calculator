@@ -1,0 +1,7 @@
+#!/user/bin/env ruby
+
+require "bundler/setup"
+require "discord_distance_calculator"
+
+require "irb"
+IRB.start(__FILE__)

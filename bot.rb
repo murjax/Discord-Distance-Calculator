@@ -8,8 +8,8 @@ bot = Discordrb::Bot.new token: credentials.token , client_id: credentials.appli
 puts "This bot's invite URL is #{bot.invite_url}."
 
 bot.message do |event|
-	handler = MessageHandler.new(event.message.to_s)
-	event.respond handler.get_response
+  handler = MessageHandler.new(event.message.to_s)
+  event.respond handler.get_response
 end
 
 bot.run
