@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative "../lib/discord_distance_calculator/bot"
+require 'dotenv/load'
+DiscordDistanceCalculator::Bot.start
