@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.bindir = "bin"
+  spec.executables = "discord_distance_bot"
   spec.require_paths = ["lib"]
 
   spec.add_dependency "discordrb"
