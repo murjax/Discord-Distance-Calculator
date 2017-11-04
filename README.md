@@ -27,6 +27,3 @@ Now you are ready to start your bot. This will run as a server, so open a new te
 `bundle exec discord_distance_calculator discord_distance_bot`
 
 The distance calculator will now listen for ```!distance```  along with two parameters representing the two locations.
-
-
-
